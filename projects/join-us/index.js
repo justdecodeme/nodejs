@@ -3,6 +3,7 @@ var faker   = require('faker');
 var mysql   = require('mysql');
 
 var app = express();
+app.set("view engine", "ejs");
 
 /**********Connecting to Database**********/
 
@@ -37,15 +38,21 @@ app.get("/", function(req, res){
 
  connection.query(sql, function (error, results) {
    if (error) throw error;
-   var msg = "We have " + results[0].count + " users";
-   res.send(msg);
+   var count = results[0].count;
+   var msg = "We have " + count + " users";
+   // res.send(msg);
+   res.render("home", {data: count});
  });
 });
 
-// Add a /joke route:
-app.get("/joke", function(req, res){
- var joke = "What do you call a dog that does magic tricks? A labracadabrador.";
- res.send(joke);
+// The '/register' post route: (Connecting the Form)
+app.post('/register', function(req,res){
+ var person = {email: req.body.email};
+ connection.query('INSERT INTO users SET ?', person, function(err, result) {
+ console.log(err);
+ console.log(result);
+ res.redirect("/");
+ });
 });
 
 // Add a /random_num route:
