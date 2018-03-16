@@ -1,9 +1,17 @@
-var express = require('express');
-var faker   = require('faker');
-var mysql   = require('mysql');
+var express      = require('express');
+var faker        = require('faker');
+var mysql        = require('mysql');
+var bodyParser   = require('body-parser');
+var livereload   = require('express-livereload');
 
 var app = express();
+livereload(app, config={});
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/node_modules/jquery/dist"));
+app.use(express.static(__dirname + "/node_modules/bootstrap/dist/css"));
+app.use(express.static(__dirname + "/node_modules/bootstrap/dist/js"));
 
 /**********Connecting to Database**********/
 
@@ -49,9 +57,9 @@ app.get("/", function(req, res){
 app.post('/register', function(req,res){
  var person = {email: req.body.email};
  connection.query('INSERT INTO users SET ?', person, function(err, result) {
- console.log(err);
- console.log(result);
- res.redirect("/");
+   console.log(err);
+   console.log(result);
+   res.redirect("/");
  });
 });
 
