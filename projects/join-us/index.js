@@ -2,10 +2,8 @@ var express      = require('express');
 var faker        = require('faker');
 var mysql        = require('mysql');
 var bodyParser   = require('body-parser');
-var livereload   = require('express-livereload');
 
 var app = express();
-livereload(app, config={});
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
