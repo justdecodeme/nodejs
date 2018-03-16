@@ -17,8 +17,5 @@
     "jquery": "^1.9.1",
     "mysql": "^2.15.0",
     "popper.js": "^1.12.9"
-  },
-  "devDependencies": {
-    "connect-livereload": "^0.6.0"
   }
 }
