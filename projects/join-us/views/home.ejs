@@ -1,12 +1,22 @@
-<link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="/bootstrap.min.css">
+<link rel="stylesheet" href="/style.css">
 
+<hr>
 <h1 class="text-center">JOIN US</h1>
+<p class="lead text-center">Enter your email to join <strong><%=data%></strong> others on our waitlist.</p>
 
-<p class="lead">Enter your email to join <strong><%=data%></strong>
-others on our waitlist. We are 100% not a cult. </p>
-
-<form method="POST" action='/register'>
- <input type="text" class="form" name="email" placeholder="Enter Your Email">
- <button>Join Now</button>
-</form>
+<div class="container">
+  <hr>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form method="POST" action='/register'>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+        </div>
+        <button class="btn btn-outline-success btn-block">Join Now</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>
