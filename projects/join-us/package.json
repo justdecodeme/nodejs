@@ -1,0 +1,16 @@
+{
+  "name": "join-us",
+  "version": "1.0.0",
+  "description": "Be the part of Learning group and help each other.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rakko",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "faker": "^4.1.0",
+    "mysql": "^2.15.0"
+  }
+}
