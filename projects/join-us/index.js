@@ -19,14 +19,25 @@ var connection = mysql.createConnection({
 /**********Generating 500 fake email and time and inserting into users table**********/
 
 // var data = [];
-// for(var i = 0; i < 500; i++){
+// var gender = ['male', 'female']
+// for(var i = 0; i < 6; i++){
 //     data.push([
+//         faker.name.firstName(),
+//         faker.name.lastName(),
+//         faker.internet.userName(),
 //         faker.internet.email(),
-//         faker.date.past()
+//         faker.random.number(1000),
+//         faker.image.avatar(),
+//         'student',
+//         faker.helpers.randomize(gender),
+//         faker.date.past(),
+//         'bc180305a',
+//         'std_'+faker.random.number()
+//
 //     ]);
 // }
 //
-// var sql = 'INSERT INTO users (email, created_at) VALUES ?';
+// var sql = 'INSERT INTO users ( `f_name`, `l_name`, `username`, `email`, `password`, `image`, `role`, `gender`, `doj`, `batch_code`, `student_code`) VALUES ?';
 //
 // connection.query(sql, [data], function(err, result) {
 //   console.log(err);
